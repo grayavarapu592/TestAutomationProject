@@ -5,10 +5,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
+import utilities.ReadXLSdata;
 
 public class MyFirstTestFW extends BaseTest{
 	
-	@Test(dataProvider = "testdata")
+	@Test(dataProviderClass = ReadXLSdata.class,dataProvider = "bvtdata")
 	public static void LoginTest(String username, String password) throws InterruptedException{
 	
 	driver.findElement(By.linkText("Sign in")).click();
@@ -26,13 +27,11 @@ public class MyFirstTestFW extends BaseTest{
 
 }
 	
-@DataProvider(name="testdata")
-public Object[][] tData(){
-	return new Object[][] {
-		{"user1", "password1"},
-		{"user2", "password2"},
-		{"ganesh.qatester@gmail.com", "Zohoautomation@1"}
-		
-	};
-}
+/*
+ * @DataProvider(name="testdata") public Object[][] tData(){ return new
+ * Object[][] { {"user1", "password1"}, {"user2", "password2"},
+ * {"ganesh.qatester@gmail.com", "Zohoautomation@1"}
+ * 
+ * }; }
+ */
 }
